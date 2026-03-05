@@ -1,0 +1,233 @@
+.skills-section {
+    max-width: 1220px;
+    margin: 0 auto;
+    background: #0c0c0e;
+}
+
+/* Header */
+.skills-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.skills-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.skills-title span {
+    color: #A291FD;
+}
+
+.skills-count {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(162, 145, 253, 0.45);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+/* Category filter */
+.cat-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.cat-btn {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(68, 68, 68, 0.7);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cat-btn:hover {
+    border-color: rgba(162, 145, 253, 0.4);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cat-btn.active {
+    background: rgba(162, 145, 253, 0.12);
+    border-color: rgba(162, 145, 253, 0.5);
+    color: #A291FD;
+}
+
+/* Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 360px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Skill card */
+.skill-card {
+    aspect-ratio: 1;
+    border: 1px solid rgba(68, 68, 68, 0.7);
+    border-radius: 14px;
+    background: #111114;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 6px 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, var(--glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-card:hover::before,
+.skill-card.hovered::before {
+    opacity: 1;
+}
+
+.skill-card:hover,
+.skill-card.hovered {
+    border-color: var(--border);
+    transform: translateY(-2px);
+    background: rgba(20, 20, 28, 1);
+}
+
+.skill-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.12);
+}
+
+.skill-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.skill-name {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    transition: color 0.2s;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.skill-card:hover .skill-name {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tooltip */
+.skill-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a24;
+    border: 1px solid rgba(162, 145, 253, 0.3);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #A291FD;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    animation: tooltipIn 0.15s ease forwards;
+}
+
+.skill-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: rgba(162, 145, 253, 0.3);
+}
+
+@keyframes tooltipIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Fade in stagger */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-card {
+    animation: fadeUp 0.35s ease both;
+}
+
+/* Divider line */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(68, 68, 68, 0.7) 20%, rgba(68, 68, 68, 0.7) 80%, transparent 100%);
+    margin-bottom: 40px;
+}
