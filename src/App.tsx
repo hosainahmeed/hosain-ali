@@ -1,3 +1,4 @@
+import FooterSection from './components/FooterSection';
 import HeaderSection from "./components/HeaderSection";
 import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
@@ -12,6 +13,7 @@ export default function App() {
         <HeroSection />
         <SkillsSection />
         <ProjectSection />
+        <FooterSection />
       </div>
     </>
   );

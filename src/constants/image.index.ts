@@ -1,23 +1,24 @@
-import hosainImage from "../assets/hosain.svg"
-import reactImage from "../assets/react.svg"
-import javascriptImage from "../assets/javascript.svg"
-import typescriptImage from "../assets/typescript.svg"
-import html5Image from "../assets/html-5.svg"
-import css3Image from "../assets/css3.svg"
-import nextImage from "../assets/next.svg"
+import antdImage from "../assets/antd.svg"
 import blueArrowImage from "../assets/blue-arrow.png"
-import nameImage from "../assets/name.svg"
+import css3Image from "../assets/css3.svg"
+import expoImage from "../assets/expo.svg"
+import expressImage from "../assets/express.svg"
 import figmaImage from "../assets/figma.svg"
 import firebaseImage from "../assets/firebase.svg"
+import footerImage from "../assets/footer.svg"
+import hLogoImage from "../assets/h-logo.svg"
+import hosainImage from "../assets/hosain.svg"
+import html5Image from "../assets/html-5.svg"
+import javascriptImage from "../assets/javascript.svg"
+import nameImage from "../assets/name.svg"
+import nextImage from "../assets/next.svg"
 import nodeJsImage from "../assets/node-js.svg"
+import reactImage from "../assets/react.svg"
 import reduxImage from "../assets/redux.svg"
 import shadCnImage from "../assets/shad-cn.svg"
 import tailwindImage from "../assets/tailwind.svg"
+import typescriptImage from "../assets/typescript.svg"
 import vercelImage from "../assets/vercel.svg"
-import expoImage from "../assets/expo.svg"
-import antdImage from "../assets/antd.svg"
-import expressImage from "../assets/express.svg"
-import hLogoImage from "../assets/h-logo.svg"
 export const images = {
   hosain: hosainImage,
   react: reactImage,
@@ -39,4 +40,5 @@ export const images = {
   antd: antdImage,
   express: expressImage,
   hLogo: hLogoImage,
+  footer: footerImage,
 } as const
