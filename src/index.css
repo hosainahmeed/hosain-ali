@@ -42,7 +42,7 @@ body {
 
 /* Card base */
 .bcard {
-  border: 1px solid #444444b3;
+  border: 1px solid rgba(68, 68, 68, 0.7);
   border-radius: 16px;
   overflow: hidden;
   background: #111114;

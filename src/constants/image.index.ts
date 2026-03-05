@@ -42,3 +42,10 @@ export const images = {
   hLogo: hLogoImage,
   footer: footerImage,
 } as const
+
+import project1 from "../assets/project-image/project-1.png"
+import project1WithWirframe from "../assets/project-image/wireframe-1.png"
+export const projectImages = {
+  project1: project1,
+  project1WithWirframe: project1WithWirframe,
+} as const

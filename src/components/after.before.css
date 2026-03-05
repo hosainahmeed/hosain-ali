@@ -1,0 +1,44 @@
+.before-after-wrap {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.img-wrap.is-after {
+  clip-path: inset(0 50% 0 0);
+}
+
+.dragger {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: black;
+  cursor: ew-resize;
+  height: 70vh;
+}
+
+.dragger-inner {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
