@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rancho&family=Sora:wght@100..800&display=swap');
 @import 'tailwindcss';
+
 *,
 *::before,
 *::after {
@@ -13,13 +14,16 @@ body {
 }
 
 .portfolio-root {
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+  background: #0c0c0e;
+}
+
+.area {
   max-width: 1220px;
   margin: 0 auto;
   border-left: 1px solid rgba(68, 68, 68, 0.7);
   border-right: 1px solid rgba(68, 68, 68, 0.7);
-  font-family: 'Nunito', sans-serif;
-  color: #fff;
-  background: #0c0c0e;
 }
 
 .portfolio-header {
@@ -105,11 +109,9 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(
-    135deg,
-    rgba(162, 145, 253, 0.07) 0%,
-    transparent 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(162, 145, 253, 0.07) 0%,
+      transparent 100%);
 }
 
 /* Social row */
@@ -265,6 +267,7 @@ body {
 
 /* Pulse dot */
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;

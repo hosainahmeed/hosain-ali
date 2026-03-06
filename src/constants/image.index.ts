@@ -19,6 +19,8 @@ import shadCnImage from "../assets/shad-cn.svg"
 import tailwindImage from "../assets/tailwind.svg"
 import typescriptImage from "../assets/typescript.svg"
 import vercelImage from "../assets/vercel.svg"
+import projectTitleImage from "../assets/project-title.svg"
+
 export const images = {
   hosain: hosainImage,
   react: reactImage,
@@ -41,11 +43,15 @@ export const images = {
   express: expressImage,
   hLogo: hLogoImage,
   footer: footerImage,
+  projectTitle: projectTitleImage,
 } as const
 
 import project1 from "../assets/project-image/project-1.png"
+import project from "../assets/project-image/project.svg"
 import project1WithWirframe from "../assets/project-image/wireframe-1.png"
+
 export const projectImages = {
   project1: project1,
+  project: project,
   project1WithWirframe: project1WithWirframe,
 } as const
