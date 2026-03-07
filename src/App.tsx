@@ -1,11 +1,23 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import ContactUsSection from './components/ContactUsSection';
 import FooterSection from './components/FooterSection';
 import HeaderSection from './components/HeaderSection';
 import HeroSection from './components/HeroSection';
 import SkillsSection from './components/SkillsSection';
 
-
 export default function App() {
+  const lenis = new Lenis();
+
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
   return (
     <>
       <div className="portfolio-root area">

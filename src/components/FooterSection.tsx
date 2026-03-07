@@ -92,11 +92,8 @@ function FooterSection() {
           {/* Col 1 — Brand */}
           <div className="flex md:flex-row flex-col w-full">
             <div className="flex-1 p-4!">
-              <div className="md:w-24 w-16 mb-5!  opacity-70 h-auto">
-                <img src={images.hLogo} alt="Footer Logo" />
-              </div>
-              <div className="footer-logo-text">
-                HOSAIN<br />ALI
+              <div className="md:h-24 h-8 mb-5!  opacity-70">
+                <img src={images.footer} alt="Footer Logo" className="h-full w-auto" />
               </div>
               <p className="footer-tagline">
                 Turning caffeine & keystrokes into experiences worth remembering.

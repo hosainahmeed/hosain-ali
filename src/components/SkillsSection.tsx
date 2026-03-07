@@ -43,6 +43,23 @@ export default function SkillsSection() {
     ? skills.filter(s => cat?.includes(s?.name))
     : skills;
 
+  <style>{`
+      .contact-title {
+        font-size: clamp(1rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 0.88;
+        letter-spacing: -0.04em;
+      }
+        .skills-section{
+        }
+      .contact-title-line2 {
+        background: linear-gradient(135deg, #a291fd 0%, #a291fd 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    `}</style>
+
   return (
     <>
       <section className="skills-section relative! p-2!">
@@ -54,13 +71,27 @@ export default function SkillsSection() {
               "radial-gradient(ellipse 70% 45% at 50% 90%, rgba(120,80,255,0.18) 0%, transparent 70%)",
           }}
         /> */}
+        <div className={`contact-header reveal ${visible ? 'visible' : ''}`}>
+          <div>
+            <div className="contact-eyebrow">Tech I work with</div>
+            <h2 className="contact-title">
+              MY<br />
+              <span className="contact-title-line2">SKILLS.</span>
+            </h2>
+          </div>
+          {/* <div className="contact-header-right">
+              <p className="contact-desc">
+                Have a project in mind, a wild idea, or just want to say hi? My inbox is always open — I respond within 24 hours.
+              </p>
+            </div> */}
+        </div>
         {/* Header */}
-        <div className="skills-header">
+        {/* <div className="skills-header">
           <div>
             <div className="skills-count">Tech I work with</div>
             <h2 className="skills-title">My <span>Skills</span></h2>
           </div>
-        </div>
+        </div> */}
 
         {/* Category filter */}
         <div className="cat-row">
