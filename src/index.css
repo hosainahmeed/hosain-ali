@@ -109,9 +109,11 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(135deg,
-      rgba(162, 145, 253, 0.07) 0%,
-      transparent 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(162, 145, 253, 0.07) 0%,
+    transparent 100%
+  );
 }
 
 /* Social row */
@@ -267,7 +269,6 @@ body {
 
 /* Pulse dot */
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 1;
