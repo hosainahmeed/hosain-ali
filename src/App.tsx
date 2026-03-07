@@ -1,7 +1,8 @@
+import ContactUsSection from './components/ContactUsSection';
 import FooterSection from './components/FooterSection';
-import HeaderSection from "./components/HeaderSection";
-import HeroSection from "./components/HeroSection";
-import SkillsSection from "./components/SkillsSection";
+import HeaderSection from './components/HeaderSection';
+import HeroSection from './components/HeroSection';
+import SkillsSection from './components/SkillsSection';
 
 
 export default function App() {
@@ -13,10 +14,12 @@ export default function App() {
         <SkillsSection />
         {/* <ProjectSection /> */}
         {/* <TimeLine /> */}
+        <ContactUsSection />
         <FooterSection />
+
       </div>
-      <div className="fixed top-0 pointer-events-none opacity-15 left-0 w-full h-screen">
-        <svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'>
+      <div className="fixed top-0 overflow-hidden pointer-events-none opacity-15 left-0 w-full min-h-screen">
+        <svg viewBox='0 0 400 3000' xmlns='http://www.w3.org/2000/svg'>
           <filter id='noiseFilter'>
             <feTurbulence
               type='fractalNoise'

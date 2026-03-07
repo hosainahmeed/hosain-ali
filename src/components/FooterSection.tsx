@@ -1,6 +1,6 @@
-import { images } from '../constants/image.index'
 import { useEffect, useRef, useState } from 'react'
-import './footer.css'
+import { images } from '../constants/image.index'
+import '../styles/footer.css'
 
 function FooterSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })

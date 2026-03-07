@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { images } from "../constants/image.index";
-import "./skill.css";
+import "../styles/skill.css";
 
 const SkillIcons = {
   HTML: { image: images.html, color: "#a291fd" },
