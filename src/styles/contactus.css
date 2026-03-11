@@ -4,7 +4,6 @@
   color: #f0ece4;
   position: relative;
   overflow: hidden;
-  padding: 6rem 0 5rem;
 }
 
 /* .contact-noise {
@@ -23,7 +22,7 @@
   z-index: 0;
   transition: opacity 0.4s ease;
 } */
-
+/* 
 .contact-grid-bg {
   position: absolute;
   inset: 0;
@@ -37,7 +36,7 @@
     black 30%,
     transparent 100%
   );
-}
+} */
 
 .contact-inner {
   max-width: 1200px;

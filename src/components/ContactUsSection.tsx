@@ -57,7 +57,7 @@ function ContactUsSection() {
   return (
     <>
       <section
-        className="contact-root"
+        className="contact-root px-2"
         ref={sectionRef}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -65,7 +65,7 @@ function ContactUsSection() {
         <div className="contact-noise" />
         <div className="contact-grid-bg" />
         <div
-          className="contact-spotlight"
+          className="contact-spotlight "
           style={{
             background: isHovered
               ? `radial-gradient(700px circle at ${mousePos.x}% ${mousePos.y}%, rgba(200,185,126,0.07), transparent 70%)`
@@ -92,7 +92,7 @@ function ContactUsSection() {
           </div>
 
           {/* Body */}
-          <div className={`contact-body reveal reveal-delay-2 ${visible ? 'visible' : ''}`}>
+          <div className={`contact-body reveal rounded-2xl reveal-delay-2 ${visible ? 'visible' : ''}`}>
 
             {/* Left — Info */}
             <div className="contact-left">

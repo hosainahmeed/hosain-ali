@@ -25,7 +25,7 @@ function MainInfoCard() {
       </div>
       <NameBlock />
       <div className="mt-3!">
-        <CustomButton btnText='Download CV' />
+        <CustomButton onClick={()=>{}} btnText='Download CV' />
       </div>
       <div className="absolute top-0 left-0">
         <MapIcon />

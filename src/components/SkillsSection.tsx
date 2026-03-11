@@ -62,7 +62,7 @@ export default function SkillsSection() {
 
   return (
     <>
-      <section className="skills-section relative! p-2!">
+      <section className="skills-section w-full! relative! p-2!">
         <div className="section-divider" />
         {/* <div
           className="pointer-events-none absolute inset-0 z-0"

@@ -7,6 +7,7 @@ import FooterSection from './components/FooterSection';
 import HeaderSection from './components/HeaderSection';
 import HeroSection from './components/HeroSection';
 import SkillsSection from './components/SkillsSection';
+import ProjectsSection from './components/ProjectsSection';
 
 export default function App() {
   const lenis = new Lenis();
@@ -20,12 +21,14 @@ export default function App() {
 
   return (
     <>
-      <div className="portfolio-root area">
-        <HeaderSection />
-        <HeroSection />
+      <div className="portfolio-root area flex flex-col gap-12 justify-between">
+        <div>
+          <HeaderSection />
+          <HeroSection />
+        </div>
         <SkillsSection />
         {/* <ProjectSection /> */}
-        {/* <TimeLine /> */}
+        <ProjectsSection />
         <ContactUsSection />
         <FooterSection />
 
