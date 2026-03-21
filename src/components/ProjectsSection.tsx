@@ -255,9 +255,6 @@ export default function ProjectsSection() {
                 <span className="proj-title-accent">PROJECTS.</span>
               </h2>
             </div>
-            <div className="proj-count">
-              {String(PROJECTS.length).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")} projects
-            </div>
           </div>
 
           {/* ── Detail Panel ── */}
@@ -317,7 +314,7 @@ export default function ProjectsSection() {
 
           {/* ── Project Nav Strip ── */}
           <div className={`proj-nav-strip proj-reveal ${visible ? "visible" : ""} proj-reveal-d3`}>
-            {PROJECTS.map((p) => (
+            {PROJECTS?.slice(0, 3).map((p) => (
               <div
                 key={p.id}
                 className={`proj-nav-item ${activeProject.id === p.id ? "active" : ""}`}
@@ -334,6 +331,7 @@ export default function ProjectsSection() {
                 <span className="proj-nav-dot" />
               </div>
             ))}
+            <div className="px-6! hover:underline cursor-pointer">See more</div>
           </div>
 
         </div>
@@ -350,12 +348,6 @@ export default function ProjectsSection() {
             gap: "0.5rem",
           }}
         >
-          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.58rem", color: "rgba(240,236,228,0.2)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-            © {new Date().getFullYear()} — Crafted with precision
-          </span>
-          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.58rem", color: "rgba(200,185,126,0.4)", letterSpacing: "0.1em" }}>
-            SECTION — 04 / WORK
-          </span>
         </div>
 
       </section>

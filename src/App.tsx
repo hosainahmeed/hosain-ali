@@ -8,6 +8,7 @@ import HeaderSection from './components/HeaderSection';
 import HeroSection from './components/HeroSection';
 import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
+import Testimonials from './components/Testimonials';
 
 export default function App() {
   const lenis = new Lenis();
@@ -27,8 +28,8 @@ export default function App() {
           <HeroSection />
         </div>
         <SkillsSection />
-        {/* <ProjectSection /> */}
         <ProjectsSection />
+        <Testimonials />
         <ContactUsSection />
         <FooterSection />
 
