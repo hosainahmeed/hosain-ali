@@ -19,6 +19,14 @@ const SkillIcons = {
   Expo: { image: images.expo, color: "#a291fd" },
   "Ant Design": { image: images.antd, color: "#a291fd" },
   Express: { image: images.express, color: "#a291fd" },
+  "Postman": { image: images.postman, color: "#a291fd" },
+  "Framer Motion": { image: images.framerMotion, color: "#a291fd" },
+  "GSAP": { image: images.gsap, color: "#a291fd" },
+  "Git": { image: images.git, color: "#a291fd" },
+  "GitHub": { image: images.github, color: "#a291fd" },
+  "Visual Code": { image: images.visualcode, color: "#a291fd" },
+  "Netlify": { image: images.netlify, color: "#a291fd" },
+  "Axios js": { image: images.axios, color: "#a291fd" },
 };
 
 const skills = [
@@ -26,13 +34,23 @@ const skills = [
   { name: "TypeScript" }, { name: "Next.js" }, { name: "Figma" }, { name: "Firebase" },
   { name: "Node.js" }, { name: "Redux" }, { name: "ShadCn" }, { name: "Tailwind" },
   { name: "Vercel" }, { name: "Expo" }, { name: "Ant Design" }, { name: "Express" },
+  { name: "Postman" },
+  { name: "Framer Motion" },
+  { name: "GSAP" },
+  { name: "Git" },
+  { name: "GitHub" },
+  { name: "Visual Code" },
+  { name: "Netlify" },
+  { name: "Axios js" },
+
 ];
 
 const categories = [
   { label: "All", filter: null },
-  { label: "Frontend", filter: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Next.js", "Tailwind", "ShadCn", "Ant Design", "Redux"] },
+  { label: "Frontend", filter: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Next.js", "Tailwind", "ShadCn", "Ant Design", "Redux", "Framer Motion", "GSAP","Axios js"] },
   { label: "Backend", filter: ["Node.js", "Express", "Firebase"] },
-  { label: "Tools", filter: ["Figma", "Vercel", "Expo"] },
+  { label: "Tools", filter: ["Figma", "Vercel", "Postman", "Git", "GitHub", "Visual Code", "Netlify"] },
+  { label: "Mobile", filter: ["React Native", "Expo"] },
 ];
 
 export default function SkillsSection() {

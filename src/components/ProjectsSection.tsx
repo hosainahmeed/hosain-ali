@@ -4,6 +4,7 @@ import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { Draggable } from "gsap/all";
 import { projectImages } from "../constants/image.index";
 import "../styles/project.css";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(Draggable, InertiaPlugin);
 
@@ -13,7 +14,7 @@ const PROJECTS = [
     id: "01",
     title: "Aether UI",
     category: "Design System",
-    tags: ["React", "TypeScript", "Figma"],
+    tags: ["React", "TypeScript", "Figma","Antd","Redux"],
     year: "2024",
     desc: "A comprehensive component library built for scale — covering 80+ components with full accessibility support and dark-mode tokens.",
     image: projectImages.project,
@@ -331,7 +332,9 @@ export default function ProjectsSection() {
                 <span className="proj-nav-dot" />
               </div>
             ))}
-            <div className="px-6! hover:underline cursor-pointer">See more</div>
+            <Link to="/projects">
+              <div className="px-6! hover:underline cursor-pointer">See more</div>
+            </Link>
           </div>
 
         </div>

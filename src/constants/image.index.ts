@@ -20,6 +20,14 @@ import tailwindImage from "../assets/tailwind.svg"
 import typescriptImage from "../assets/typescript.svg"
 import vercelImage from "../assets/vercel.svg"
 import projectTitleImage from "../assets/project-title.svg"
+import postman from "../assets/postman.svg"
+import framerMotion from "../assets/framer-motion.svg"
+import gsap from "../assets/gsap.svg"
+import git from "../assets/git.svg"
+import github from "../assets/github.svg"
+import visualcode from "../assets/visualcode.svg"
+import netlify from "../assets/netlify.svg"
+import axios from "../assets/axios.svg"
 
 export const images = {
   hosain: hosainImage,
@@ -44,6 +52,14 @@ export const images = {
   hLogo: hLogoImage,
   footer: footerImage,
   projectTitle: projectTitleImage,
+  postman: postman,
+  framerMotion: framerMotion,
+  gsap: gsap,
+  git: git,
+  github: github,
+  visualcode: visualcode,
+  netlify: netlify,
+  axios: axios,
 } as const
 
 import project1 from "../assets/project-image/project-1.png"
