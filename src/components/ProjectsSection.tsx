@@ -12,7 +12,7 @@ gsap.registerPlugin(Draggable, InertiaPlugin);
 const PROJECTS = [
   {
     id: "01",
-    title: "Aether UI",
+    title: "Sampli io",
     category: "Design System",
     tags: ["React", "TypeScript", "Figma","Antd","Redux"],
     year: "2024",
@@ -283,7 +283,7 @@ export default function ProjectsSection() {
                   <span>View Project</span>
                   <span>→</span>
                 </a>
-                <a href="#" className="proj-btn-ghost">
+                <a href="https://sampli.io" target="_blank" rel="noopener noreferrer" className="proj-btn-ghost">
                   <span>Live Demo</span>
                   <span style={{ fontSize: "0.7rem" }}>↗</span>
                 </a>
@@ -299,7 +299,7 @@ export default function ProjectsSection() {
                   <img
                     src={activeProject.image}
                     alt={activeProject.title}
-                    className={transitioning ? "fade-out" : ""}
+                    className="object-top-left hover:object-bottom-left"
                     draggable={false}
                   />
                   <div className="proj-image-overlay" />

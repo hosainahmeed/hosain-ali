@@ -63,7 +63,7 @@ export const images = {
 } as const
 
 import project1 from "../assets/project-image/project-1.png"
-import project from "../assets/project-image/project.svg"
+import project from "../assets/project-image/sampli.png"
 import project1WithWirframe from "../assets/project-image/wireframe-1.png"
 
 export const projectImages = {
