@@ -279,10 +279,10 @@ export default function ProjectsSection() {
                 </p>
               </div>
               <div className="proj-detail-actions" style={{ marginTop: "2rem" }}>
-                <a href="#" className="proj-btn-primary">
+                <Link to={`/projects/${activeProject.id}`} className="proj-btn-primary">
                   <span>View Project</span>
                   <span>→</span>
-                </a>
+                </Link>
                 <a href="https://sampli.io" target="_blank" rel="noopener noreferrer" className="proj-btn-ghost">
                   <span>Live Demo</span>
                   <span style={{ fontSize: "0.7rem" }}>↗</span>
