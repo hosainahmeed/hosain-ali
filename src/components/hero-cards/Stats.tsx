@@ -1,4 +1,9 @@
 import { images } from "../../constants/image.index";
+import type { IHeroStats } from "../../types/hero.types";
+
+interface StatsProps {
+    stats?: IHeroStats;
+}
 
 const HLogo = () => (
     <div style={{
@@ -8,17 +13,20 @@ const HLogo = () => (
         <img style={{ width: 48, height: 48 }} src={images.hLogo} alt="H Logo" />
     </div>
 );
-function Stats() {
+
+function Stats({ stats }: StatsProps) {
+    const statItems = [
+        { value: stats?.projectsCount || "10+", label: "Projects" },
+        { value: stats?.yearsExperience || "1+", label: "Years Exp" },
+        { value: stats?.clientsCount || "10+", label: "Clients" },
+    ];
+
     return (
         <div className="bcard card-stats fade-up">
             <div className="stats-logo stats-cell">
                 <HLogo />
             </div>
-            {[
-                { value: "10+", label: "Projects" },
-                { value: "1+", label: "Years Exp" },
-                { value: "10+", label: "Clients" },
-            ].map(stat => (
+            {statItems.map(stat => (
                 <div key={stat.label} className="stats-cell">
                     <span style={{
                         fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)",

@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { RootState } from "./store";
+import type { RootState } from "./store";
 
 const baseApis = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_API_BASE_URL || "https://57n8wl91-5000.inc1.devtunnels.ms/api/v1",
+    baseUrl: import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/v1",
     prepareHeaders: (headers, { getState }) => {
-      const token = (getState() as RootState).auth.accessToken;
+      const state = getState() as RootState & { auth?: { accessToken?: string } };
+      const token = state?.auth?.accessToken;
       if (token) {
         headers.set("Authorization", `${token}`);
       }
@@ -14,8 +15,9 @@ const baseApis = createApi({
     },
   }),
   tagTypes: [
+    "hero",
     "user",
-    "Service",
+    "Service",  
     "gallery",
     "about-us",
     "contact-us",

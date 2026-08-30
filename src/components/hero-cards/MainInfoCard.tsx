@@ -2,7 +2,15 @@ import { LocationIcon, MapIcon } from '../../constants/icons'
 import CustomButton from '../buttons/CustomButtom'
 import { NameBlock } from './NameBlock'
 
-function MainInfoCard() {
+interface MainInfoCardProps {
+  availabilityStatus?: string;
+  location?: string;
+  name?: string;
+  tagline?: string;
+  cvUrl?: string;
+}
+
+function MainInfoCard({ availabilityStatus, location, name, tagline, cvUrl }: MainInfoCardProps) {
   return (
     <div className="bcard card-main-info fade-up flex flex-col items-start justify-center">
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
@@ -14,18 +22,22 @@ function MainInfoCard() {
           <span className="pulse-dot" style={{
             width: 5, height: 5, borderRadius: "50%", background: "#A291FD", display: "inline-block"
           }} />
-          Open to work
+          {availabilityStatus || "Open to work"}
         </span>
         <span style={{
           color: "rgba(255,255,255,0.3)", fontSize: 12,
           display: "flex", alignItems: "center", gap: 4,
         }}>
-          <LocationIcon /> Dhaka, Bangladesh
+          <LocationIcon /> {location || "Dhaka, Bangladesh"}
         </span>
       </div>
-      <NameBlock />
+      <NameBlock name={name} tagline={tagline} />
       <div className="mt-3!">
-        <CustomButton onClick={()=>{}} btnText='Download CV' />
+        <CustomButton onClick={() => {
+          if (cvUrl) {
+            window.open(cvUrl, "_blank");
+          }
+        }} btnText='Download CV' />
       </div>
       <div className="absolute top-0 left-0">
         <MapIcon />

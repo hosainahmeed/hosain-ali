@@ -1,6 +1,8 @@
+interface DescriptionProps {
+  welcomeMessage?: string;
+}
 
-
-function Description() {
+function Description({ welcomeMessage }: DescriptionProps) {
     return (
         <div className="bcard card-desc fade-up">
             <p style={{
@@ -10,8 +12,7 @@ function Description() {
                 lineHeight: 1.65,
                 fontFamily: "Georgia, serif",
             }}>
-                Welcome to my portfolio! I'm Hosain Ali, a web developer and digital artist.
-                In this space, I'll share a glimpse into my work and what I love to do.
+                {welcomeMessage || "Welcome to my portfolio! I'm Hosain Ali, a web developer and digital artist. In this space, I'll share a glimpse into my work and what I love to do."}
             </p>
         </div>
     )

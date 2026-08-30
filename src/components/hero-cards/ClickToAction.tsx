@@ -1,8 +1,13 @@
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import CrownIcon from "../../constants/crown.icon";
+import type { IHeroCta } from '../../types/hero.types';
 
-function ClickToAction() {
+interface ClickToActionProps {
+  ctaText?: IHeroCta;
+}
+
+function ClickToAction({ ctaText }: ClickToActionProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const flairRef = useRef<HTMLSpanElement | null>(null);
 
@@ -81,6 +86,7 @@ function ClickToAction() {
       button.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
   return (
     <div ref={cardRef} className="bcard card-cta fade-up relative!">
       <CrownIcon />
@@ -88,11 +94,11 @@ function ClickToAction() {
         <div style={{
           fontSize: "clamp(0.9rem, 2vw, 1.15rem)",
           fontWeight: 800, color: "#A291FD", lineHeight: 1.2,
-        }}>Let's Work Together</div>
+        }}>{ctaText?.title || "Let's Work Together"}</div>
         <div style={{
           fontSize: "clamp(0.7rem, 1.3vw, 0.78rem)",
           color: "rgba(162,145,253,0.6)", marginTop: 3, fontWeight: 500,
-        }}>Let's Make Magic Happen!</div>
+        }}>{ctaText?.subtitle || "Let's Make Magic Happen!"}</div>
 
       </div>
       <span

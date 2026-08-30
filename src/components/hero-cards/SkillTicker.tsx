@@ -1,10 +1,13 @@
 import { skills } from "../../constants/skills";
 import { SkillPill } from "./SkillPill";
 
+interface SkillTickerProps {
+    skillItems?: { name: string; color?: string }[];
+}
 
-
-export const SkillTicker = () => {
-    const doubled = [...skills, ...skills];
+export const SkillTicker = ({ skillItems }: SkillTickerProps) => {
+    const items = skillItems && skillItems.length > 0 ? skillItems : skills;
+    const doubled = [...items, ...items];
     return (
         <div style={{ overflow: "hidden", width: "100%", padding: "4px 0" }}>
             <style>{`
