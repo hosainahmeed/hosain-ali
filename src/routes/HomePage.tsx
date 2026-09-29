@@ -1,7 +1,6 @@
 import HeroSection from "../components/HeroSection";
 import SkillsSection from "../components/SkillsSection";
 import ProjectsSection from "../components/ProjectsSection";
-import Testimonials from "../components/Testimonials";
 import ContactUsSection from "../components/ContactUsSection";
 import SidebarNav from "../components/SidebarNav";
 

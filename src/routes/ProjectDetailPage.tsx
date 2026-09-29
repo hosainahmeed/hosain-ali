@@ -475,9 +475,6 @@ function AppStoreLayout({ project, allProjects }: ProjectDetailData) {
 /* ═══════════════════════════════════════════════ */
 function DefaultLayout({ project, allProjects }: ProjectDetailData) {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"preview" | "wireframe">(
-    "preview",
-  );
 
   const currentIndex = allProjects.findIndex((p) => p.id === project.id);
   const prevProject =
