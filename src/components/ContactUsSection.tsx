@@ -121,14 +121,6 @@ function ContactUsSection() {
                   </p>
                 </div>
               </div>
-
-              <div>
-                <div className="contact-section-label">Response Time</div>
-                <div style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.62rem', color: 'rgba(240,236,228,0.3)', lineHeight: '1.8', fontStyle: 'italic' }}>
-                  Typically within 24hrs —<br />
-                  Mon–Fri, 9AM–6PM local time.
-                </div>
-              </div>
             </div>
 
             {/* Right — Form */}
@@ -220,9 +212,6 @@ function ContactUsSection() {
 
                   {/* Submit */}
                   <div className="contact-submit-row">
-                    <p className="contact-submit-note">
-                      Your message goes directly to my inbox — no bots, no forms, just me.
-                    </p>
                     <button className="contact-btn" onClick={handleSubmit}>
                       <span>Send Message</span>
                       <span style={{ fontSize: '1rem' }}>→</span>
