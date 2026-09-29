@@ -90,13 +90,13 @@ export default function SkillsSection() {
           }}
         /> */}
         <div className={`contact-header reveal ${visible ? 'visible' : ''}`}>
-          <div>
+          {/* <div>
             <div className="contact-eyebrow">Tech I work with</div>
             <h2 className="contact-title">
               MY<br />
               <span className="contact-title-line2">SKILLS.</span>
             </h2>
-          </div>
+          </div> */}
           {/* <div className="contact-header-right">
               <p className="contact-desc">
                 Have a project in mind, a wild idea, or just want to say hi? My inbox is always open — I respond within 24 hours.

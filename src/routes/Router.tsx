@@ -8,30 +8,30 @@ import { rootLoader, projectsLoader, projectDetailLoader } from "./loaders";
 import NotFound from "./NotFound";
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Root />,
-        loader: rootLoader,
-        errorElement: <ErrorBoundary />,
-        children: [
-            {
-                index: true,
-                element: <HomePage />,
-            },
-            {
-                path: "/projects",
-                element: <ProjectsPage />,
-                loader: projectsLoader,
-            },
-            {
-                path: "/projects/:id",
-                element: <ProjectDetailPage />,
-                loader: projectDetailLoader,
-            },
-            {
-                path: "*",
-                element: <NotFound />,
-            }
-        ],
-    },
+  {
+    path: "/",
+    element: <Root />,
+    loader: rootLoader,
+    errorElement: <ErrorBoundary />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "/projects",
+        element: <ProjectsPage />,
+        loader: projectsLoader,
+      },
+      {
+        path: "/projects/:id",
+        element: <ProjectDetailPage />,
+        loader: projectDetailLoader,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
 ]);

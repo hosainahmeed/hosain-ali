@@ -18,9 +18,6 @@ export default function HomePage() {
       <section id="projects">
         <ProjectsSection />
       </section>
-      <section id="testimonials">
-        <Testimonials />
-      </section>
       <section id="contact">
         <ContactUsSection />
       </section>

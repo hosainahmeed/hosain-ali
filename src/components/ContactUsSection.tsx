@@ -77,13 +77,13 @@ function ContactUsSection() {
 
           {/* Header */}
           <div className={`contact-header reveal ${visible ? 'visible' : ''}`}>
-            <div>
+            {/* <div>
               <div className="contact-eyebrow">Get in Touch</div>
               <h2 className="contact-title">
                 LET'S<br />
                 <span className="contact-title-line2">TALK.</span>
               </h2>
-            </div>
+            </div> */}
             {/* <div className="contact-header-right">
               <p className="contact-desc">
                 Have a project in mind, a wild idea, or just want to say hi? My inbox is always open — I respond within 24 hours.

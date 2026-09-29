@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useLoaderData, useNavigate, Link } from "react-router-dom";
 import type { Project } from "./loaders";
 import "../styles/project.css";
@@ -8,8 +8,436 @@ interface ProjectDetailData {
   allProjects: Project[];
 }
 
-export default function ProjectDetailPage() {
-  const { project, allProjects } = useLoaderData() as ProjectDetailData;
+/* ─── Star Rating Component ─── */
+function StarRating({ rating }: { rating: number }) {
+  const full = Math.floor(rating);
+  const hasHalf = rating - full >= 0.3;
+  const stars = [];
+
+  for (let i = 0; i < 5; i++) {
+    if (i < full) {
+      stars.push(
+        <svg key={i} className="appstore-star" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      );
+    } else if (i === full && hasHalf) {
+      stars.push(
+        <svg key={i} className="appstore-star" viewBox="0 0 24 24">
+          <defs>
+            <linearGradient id={`half-${i}`}>
+              <stop offset="50%" stopColor="currentColor" />
+              <stop offset="50%" stopColor="rgba(255,255,255,0.15)" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill={`url(#half-${i})`} />
+        </svg>
+      );
+    } else {
+      stars.push(
+        <svg key={i} className="appstore-star appstore-star--empty" viewBox="0 0 24 24" fill="rgba(255,255,255,0.15)">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      );
+    }
+  }
+
+  return <div className="appstore-stars">{stars}</div>;
+}
+
+/* ─── Screenshot Carousel ─── */
+function ScreenshotCarousel({ screenshots, title }: { screenshots: string[]; title: string }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 8);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 8);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const el = scrollRef.current;
+    if (el) el.addEventListener("scroll", checkScroll);
+    return () => el?.removeEventListener("scroll", checkScroll);
+  }, []);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.7;
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  return (
+    <div className="appstore-carousel-wrap">
+      {canScrollLeft && (
+        <button className="appstore-carousel-btn appstore-carousel-btn--left" onClick={() => scroll("left")} aria-label="Scroll left">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+      )}
+      <div className="appstore-carousel" ref={scrollRef}>
+        {screenshots.map((src, i) => (
+          <div key={i} className="appstore-screenshot-card">
+            <img src={src} alt={`${title} screenshot ${i + 1}`} loading="lazy" />
+          </div>
+        ))}
+      </div>
+      {canScrollRight && (
+        <button className="appstore-carousel-btn appstore-carousel-btn--right" onClick={() => scroll("right")} aria-label="Scroll right">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      )}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════ */
+/*  APP STORE LAYOUT — for category === "Mobile"  */
+/* ═══════════════════════════════════════════════ */
+function AppStoreLayout({ project, allProjects }: ProjectDetailData) {
+  const navigate = useNavigate();
+  const [descExpanded, setDescExpanded] = useState(false);
+  const [whatsNewExpanded, setWhatsNewExpanded] = useState(false);
+
+  const currentIndex = allProjects.findIndex((p) => p.id === project.id);
+  const prevProject = allProjects[(currentIndex - 1 + allProjects.length) % allProjects.length];
+  const nextProject = allProjects[(currentIndex + 1) % allProjects.length];
+
+  const displayDesc = project.fullDesc || project.desc;
+
+  return (
+    <div className="appstore-root">
+      <div className="appstore-inner">
+
+        {/* ── Back Nav ── */}
+        <button onClick={() => navigate("/projects")} className="appstore-back-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span>Projects</span>
+        </button>
+
+        {/* ── Hero: App Icon + Title + Get Button ── */}
+        <div className="appstore-hero">
+          <div className="appstore-icon-wrap">
+            <img
+              src={project.appIcon || project.image}
+              alt={`${project.title} icon`}
+              className="appstore-icon"
+            />
+          </div>
+          <div className="appstore-hero-info">
+            <h1 className="appstore-title">{project.title}</h1>
+            <p className="appstore-subtitle">{project.desc}</p>
+            <p className="appstore-developer">
+              {project.developer || project.client || "Independent Developer"}
+            </p>
+            <div className="appstore-hero-actions">
+              {project.liveUrl && (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="appstore-get-btn">
+                  GET
+                </a>
+              )}
+              {project.price && (
+                <span className="appstore-price-label">
+                  {project.price === "Free" ? "Free" : project.price}
+                  {project.price === "Free" && " · No In-App Purchases"}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Info Pills Strip ── */}
+        <div className="appstore-info-strip">
+          {project.rating !== undefined && (
+            <div className="appstore-info-pill">
+              <div className="appstore-pill-label">
+                {project.reviewCount?.toLocaleString() || "—"} Ratings
+              </div>
+              <div className="appstore-pill-value">
+                {project.rating.toFixed(1)}
+                <StarRating rating={project.rating} />
+              </div>
+            </div>
+          )}
+          <div className="appstore-info-pill-divider" />
+          {project.ageRating && (
+            <div className="appstore-info-pill">
+              <div className="appstore-pill-label">Age</div>
+              <div className="appstore-pill-value appstore-pill-value--bordered">
+                {project.ageRating}
+              </div>
+              <div className="appstore-pill-sublabel">Years Old</div>
+            </div>
+          )}
+          <div className="appstore-info-pill-divider" />
+          <div className="appstore-info-pill">
+            <div className="appstore-pill-label">Category</div>
+            <div className="appstore-pill-value appstore-pill-value--icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div className="appstore-pill-sublabel">{project.appCategory || project.category}</div>
+          </div>
+          <div className="appstore-info-pill-divider" />
+          <div className="appstore-info-pill">
+            <div className="appstore-pill-label">Developer</div>
+            <div className="appstore-pill-value appstore-pill-value--icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div className="appstore-pill-sublabel">{project.developer || project.client || "—"}</div>
+          </div>
+          <div className="appstore-info-pill-divider" />
+          {project.appSize && (
+            <div className="appstore-info-pill">
+              <div className="appstore-pill-label">Size</div>
+              <div className="appstore-pill-value">{project.appSize}</div>
+            </div>
+          )}
+        </div>
+
+        {/* ── Screenshot Carousel ── */}
+        {project.screenshots && project.screenshots.length > 0 && (
+          <section className="appstore-section">
+            <ScreenshotCarousel screenshots={project.screenshots} title={project.title} />
+          </section>
+        )}
+
+        {/* ── Description ── */}
+        <section className="appstore-section appstore-section--bordered">
+          <div className="appstore-desc-block">
+            <p className={`appstore-desc-text ${descExpanded ? "appstore-desc-text--expanded" : ""}`}>
+              {displayDesc}
+            </p>
+            {displayDesc.length > 150 && (
+              <button className="appstore-more-btn" onClick={() => setDescExpanded(!descExpanded)}>
+                {descExpanded ? "less" : "more"}
+              </button>
+            )}
+          </div>
+        </section>
+
+        {/* ── What's New ── */}
+        {project.whatsNew && project.whatsNew.length > 0 && (
+          <section className="appstore-section appstore-section--bordered">
+            <div className="appstore-section-header">
+              <h2 className="appstore-section-title">What's New</h2>
+              {project.version && (
+                <span className="appstore-version-badge">
+                  Version {project.version}
+                  {project.versionDate && <span className="appstore-version-date"> · {project.versionDate}</span>}
+                </span>
+              )}
+            </div>
+            <ul className={`appstore-whatsnew-list ${whatsNewExpanded ? "appstore-whatsnew-list--expanded" : ""}`}>
+              {project.whatsNew.map((item, i) => (
+                <li key={i} className="appstore-whatsnew-item">
+                  <span className="appstore-whatsnew-bullet">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {project.whatsNew.length > 3 && (
+              <button className="appstore-more-btn" onClick={() => setWhatsNewExpanded(!whatsNewExpanded)}>
+                {whatsNewExpanded ? "less" : "more"}
+              </button>
+            )}
+          </section>
+        )}
+
+        {/* ── Key Features (like App Preview section) ── */}
+        {project.features && project.features.length > 0 && (
+          <section className="appstore-section appstore-section--bordered">
+            <h2 className="appstore-section-title">Key Features</h2>
+            <div className="appstore-features-grid">
+              {project.features.map((feat, idx) => (
+                <div key={idx} className="appstore-feature-card">
+                  <div className="appstore-feature-number">
+                    {String(idx + 1).padStart(2, "0")}
+                  </div>
+                  <p className="appstore-feature-text">{feat}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Stats ── */}
+        {project.stats && project.stats.length > 0 && (
+          <section className="appstore-section appstore-section--bordered">
+            <h2 className="appstore-section-title">Project Metrics</h2>
+            <div className="appstore-stats-grid">
+              {project.stats.map((st) => (
+                <div key={st.label} className="appstore-stat-card">
+                  <div className="appstore-stat-value">{st.value}</div>
+                  <div className="appstore-stat-label">{st.label}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Challenge & Solution ── */}
+        {(project.challenge || project.solution) && (
+          <section className="appstore-section appstore-section--bordered">
+            <h2 className="appstore-section-title">Engineering Deep Dive</h2>
+            <div className="appstore-eng-grid">
+              {project.challenge && (
+                <div className="appstore-eng-card appstore-eng-card--challenge">
+                  <div className="appstore-eng-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    The Challenge
+                  </div>
+                  <p className="appstore-eng-text">{project.challenge}</p>
+                </div>
+              )}
+              {project.solution && (
+                <div className="appstore-eng-card appstore-eng-card--solution">
+                  <div className="appstore-eng-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    The Solution
+                  </div>
+                  <p className="appstore-eng-text">{project.solution}</p>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ── Information / Tech Stack Section ── */}
+        <section className="appstore-section appstore-section--bordered">
+          <h2 className="appstore-section-title">Information</h2>
+          <div className="appstore-info-table">
+            <div className="appstore-info-row">
+              <span className="appstore-info-key">Developer</span>
+              <span className="appstore-info-val">{project.developer || project.client || "—"}</span>
+            </div>
+            <div className="appstore-info-row">
+              <span className="appstore-info-key">Category</span>
+              <span className="appstore-info-val">{project.appCategory || project.category}</span>
+            </div>
+            {project.appSize && (
+              <div className="appstore-info-row">
+                <span className="appstore-info-key">Size</span>
+                <span className="appstore-info-val">{project.appSize}</span>
+              </div>
+            )}
+            <div className="appstore-info-row">
+              <span className="appstore-info-key">Role</span>
+              <span className="appstore-info-val">{project.role || "Lead Developer"}</span>
+            </div>
+            <div className="appstore-info-row">
+              <span className="appstore-info-key">Duration</span>
+              <span className="appstore-info-val">{project.duration || "—"}</span>
+            </div>
+            {project.compatibility && (
+              <div className="appstore-info-row appstore-info-row--compat">
+                <span className="appstore-info-key">Compatibility</span>
+                <div className="appstore-compat-list">
+                  {project.compatibility.map((c, i) => (
+                    <span key={i} className="appstore-compat-item">{c}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            <div className="appstore-info-row">
+              <span className="appstore-info-key">Technologies</span>
+              <div className="appstore-tags-wrap">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="appstore-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Quick Links ── */}
+        <section className="appstore-section appstore-section--bordered">
+          <div className="appstore-links-row">
+            {project.liveUrl && (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="appstore-link-card">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                <div>
+                  <div className="appstore-link-title">Live Demo</div>
+                  <div className="appstore-link-sub">Visit the live application</div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="appstore-link-arrow">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </a>
+            )}
+            {project.githubUrl && (
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="appstore-link-card">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                <div>
+                  <div className="appstore-link-title">Source Code</div>
+                  <div className="appstore-link-sub">Browse the repository</div>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="appstore-link-arrow">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </a>
+            )}
+          </div>
+        </section>
+
+        {/* ── Footer Navigation (Prev / Next) ── */}
+        <div className="appstore-footer-nav">
+          <Link to={`/projects/${prevProject.id}`} className="appstore-nav-card">
+            <div className="appstore-nav-direction">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              Previous Project
+            </div>
+            <div className="appstore-nav-name">{prevProject.title}</div>
+          </Link>
+          <Link to={`/projects/${nextProject.id}`} className="appstore-nav-card appstore-nav-card--right">
+            <div className="appstore-nav-direction">
+              Next Project
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <div className="appstore-nav-name">{nextProject.title}</div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════ */
+/*  DEFAULT LAYOUT — for all other categories    */
+/* ═══════════════════════════════════════════════ */
+function DefaultLayout({ project, allProjects }: ProjectDetailData) {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"preview" | "wireframe">("preview");
 
@@ -319,4 +747,17 @@ export default function ProjectDetailPage() {
       </div>
     </div>
   );
+}
+
+/* ═══════════════════════════════════════════════ */
+/*  MAIN EXPORT — Chooses layout by category     */
+/* ═══════════════════════════════════════════════ */
+export default function ProjectDetailPage() {
+  const data = useLoaderData() as ProjectDetailData;
+  const isAppProject = data.project.category.toLowerCase() === "mobile";
+
+  if (isAppProject) {
+    return <AppStoreLayout {...data} />;
+  }
+  return <DefaultLayout {...data} />;
 }

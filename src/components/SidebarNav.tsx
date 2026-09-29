@@ -9,7 +9,6 @@ const SECTIONS: SectionItem[] = [
   { id: "hero", label: "Hero" },
   { id: "skills", label: "Tech Stack" },
   { id: "projects", label: "Projects" },
-  { id: "testimonials", label: "Testimonials" },
   { id: "contact", label: "Contact" },
 ];
 

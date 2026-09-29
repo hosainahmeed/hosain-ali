@@ -600,4 +600,1349 @@
       padding: 1.5rem;
     }
   }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*  APP STORE LAYOUT STYLES                                   */
+  /* ═══════════════════════════════════════════════════════════ */
+
+  .appstore-root {
+    font-family: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #f5f5f7;
+    min-height: 100vh;
+    padding: 0;
+    background: #0c0c0e;
+  }
+
+  .appstore-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── Back Button ── */
+  .appstore-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2997ff;
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+
+  .appstore-back-btn:hover {
+    opacity: 0.75;
+  }
+
+  /* ── Hero Section ── */
+  .appstore-hero {
+    display: flex;
+    gap: 24px;
+    padding: 20px 0 28px;
+    align-items: flex-start;
+  }
+
+  .appstore-icon-wrap {
+    flex-shrink: 0;
+    width: 128px;
+    height: 128px;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #1c1c1e;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 8px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .appstore-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .appstore-hero-info {
+    flex: 1;
+    min-width: 0;
+    padding-top: 2px;
+  }
+
+  .appstore-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #f5f5f7;
+    margin: 0 0 6px;
+    line-height: 1.15;
+  }
+
+  .appstore-subtitle {
+    font-size: 14px;
+    color: rgba(245, 245, 247, 0.5);
+    margin: 0 0 4px;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .appstore-developer {
+    font-size: 14px;
+    color: #2997ff;
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+
+  .appstore-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .appstore-get-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 28px;
+    border-radius: 100px;
+    background: #2997ff;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 12px rgba(41, 151, 255, 0.3);
+  }
+
+  .appstore-get-btn:hover {
+    background: #0a84ff;
+    box-shadow: 0 4px 20px rgba(41, 151, 255, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .appstore-price-label {
+    font-size: 12px;
+    color: rgba(245, 245, 247, 0.35);
+    font-weight: 500;
+  }
+
+  /* ── Info Pills Strip ── */
+  .appstore-info-strip {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .appstore-info-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .appstore-info-pill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 85px;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .appstore-info-pill-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+  }
+
+  .appstore-pill-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(245, 245, 247, 0.35);
+  }
+
+  .appstore-pill-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(245, 245, 247, 0.55);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .appstore-pill-value--bordered {
+    font-size: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 2px 8px;
+  }
+
+  .appstore-pill-value--icon {
+    color: rgba(245, 245, 247, 0.4);
+  }
+
+  .appstore-pill-sublabel {
+    font-size: 10px;
+    color: rgba(245, 245, 247, 0.35);
+    font-weight: 500;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .appstore-stars {
+    display: flex;
+    gap: 1px;
+  }
+
+  .appstore-star {
+    width: 12px;
+    height: 12px;
+    color: #ff9f0a;
+  }
+
+  .appstore-star--empty {
+    color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* ── Screenshot Carousel ── */
+  .appstore-carousel-wrap {
+    position: relative;
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+
+  .appstore-carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 0 16px;
+  }
+
+  .appstore-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .appstore-screenshot-card {
+    flex-shrink: 0;
+    width: 230px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #1c1c1e;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    scroll-snap-align: start;
+    box-shadow:
+      0 2px 16px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease;
+  }
+
+  .appstore-screenshot-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(41, 151, 255, 0.15);
+  }
+
+  .appstore-screenshot-card img {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    display: block;
+  }
+
+  .appstore-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(28, 28, 30, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #f5f5f7;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s;
+  }
+
+  .appstore-carousel-btn:hover {
+    background: rgba(58, 58, 60, 0.9);
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .appstore-carousel-btn--left {
+    left: 8px;
+  }
+
+  .appstore-carousel-btn--right {
+    right: 8px;
+  }
+
+  /* ── Sections ── */
+  .appstore-section {
+    padding: 28px 0;
+  }
+
+  .appstore-section--bordered {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .appstore-section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .appstore-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #f5f5f7;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .appstore-section-header .appstore-section-title {
+    margin-bottom: 0;
+  }
+
+  .appstore-version-badge {
+    font-size: 13px;
+    color: rgba(245, 245, 247, 0.4);
+    font-weight: 500;
+  }
+
+  .appstore-version-date {
+    color: rgba(245, 245, 247, 0.3);
+  }
+
+  /* ── Description ── */
+  .appstore-desc-block {
+    position: relative;
+  }
+
+  .appstore-desc-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(245, 245, 247, 0.7);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .appstore-desc-text--expanded {
+    -webkit-line-clamp: unset;
+    display: block;
+  }
+
+  .appstore-more-btn {
+    background: none;
+    border: none;
+    color: #2997ff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 0;
+    font-family: 'Syne', sans-serif;
+    transition: opacity 0.2s;
+  }
+
+  .appstore-more-btn:hover {
+    opacity: 0.7;
+  }
+
+  /* ── What's New ── */
+  .appstore-whatsnew-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .appstore-whatsnew-list--expanded {
+    max-height: 800px;
+  }
+
+  .appstore-whatsnew-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(245, 245, 247, 0.65);
+    line-height: 1.55;
+    padding: 4px 0;
+  }
+
+  .appstore-whatsnew-bullet {
+    color: rgba(245, 245, 247, 0.3);
+    font-size: 16px;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* ── Features Grid ── */
+  .appstore-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .appstore-feature-card {
+    background: rgba(28, 28, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .appstore-feature-card:hover {
+    border-color: rgba(41, 151, 255, 0.2);
+    background: rgba(28, 28, 30, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .appstore-feature-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: rgba(41, 151, 255, 0.25);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .appstore-feature-text {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(245, 245, 247, 0.7);
+    margin: 0;
+  }
+
+  /* ── Stats Grid ── */
+  .appstore-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .appstore-stat-card {
+    background: rgba(28, 28, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .appstore-stat-card:hover {
+    border-color: rgba(41, 151, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .appstore-stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #2997ff;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .appstore-stat-label {
+    font-size: 11px;
+    color: rgba(245, 245, 247, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* ── Engineering Cards ── */
+  .appstore-eng-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .appstore-eng-card {
+    border-radius: 16px;
+    padding: 22px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .appstore-eng-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .appstore-eng-card--challenge {
+    background: rgba(255, 69, 58, 0.06);
+    border: 1px solid rgba(255, 69, 58, 0.15);
+  }
+
+  .appstore-eng-card--solution {
+    background: rgba(48, 209, 88, 0.06);
+    border: 1px solid rgba(48, 209, 88, 0.15);
+  }
+
+  .appstore-eng-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .appstore-eng-card--challenge .appstore-eng-label {
+    color: #ff453a;
+  }
+
+  .appstore-eng-card--solution .appstore-eng-label {
+    color: #30d158;
+  }
+
+  .appstore-eng-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(245, 245, 247, 0.65);
+    margin: 0;
+  }
+
+  /* ── Information Table ── */
+  .appstore-info-table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .appstore-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 20px;
+  }
+
+  .appstore-info-row:last-child {
+    border-bottom: none;
+  }
+
+  .appstore-info-key {
+    font-size: 14px;
+    color: rgba(245, 245, 247, 0.4);
+    flex-shrink: 0;
+    min-width: 120px;
+    font-weight: 500;
+  }
+
+  .appstore-info-val {
+    font-size: 14px;
+    color: rgba(245, 245, 247, 0.75);
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .appstore-info-row--compat {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .appstore-compat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .appstore-compat-item {
+    font-size: 13px;
+    color: rgba(245, 245, 247, 0.55);
+    line-height: 1.4;
+  }
+
+  .appstore-tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+
+  .appstore-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(41, 151, 255, 0.1);
+    color: #2997ff;
+    border: 1px solid rgba(41, 151, 255, 0.15);
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+
+  .appstore-tag:hover {
+    background: rgba(41, 151, 255, 0.18);
+    border-color: rgba(41, 151, 255, 0.3);
+  }
+
+  /* ── Link Cards ── */
+  .appstore-links-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .appstore-link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.2s;
+    color: #f5f5f7;
+  }
+
+  .appstore-link-card:last-child {
+    border-bottom: none;
+  }
+
+  .appstore-link-card:hover {
+    opacity: 0.8;
+  }
+
+  .appstore-link-card svg:first-child {
+    flex-shrink: 0;
+    color: #2997ff;
+  }
+
+  .appstore-link-card > div {
+    flex: 1;
+  }
+
+  .appstore-link-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f5f5f7;
+  }
+
+  .appstore-link-sub {
+    font-size: 12px;
+    color: rgba(245, 245, 247, 0.35);
+    margin-top: 2px;
+  }
+
+  .appstore-link-arrow {
+    flex-shrink: 0;
+    color: rgba(245, 245, 247, 0.2);
+  }
+
+  /* ── Footer Navigation ── */
+  .appstore-footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .appstore-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(28, 28, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .appstore-nav-card:hover {
+    border-color: rgba(41, 151, 255, 0.25);
+    background: rgba(28, 28, 30, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .appstore-nav-card--right {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .appstore-nav-direction {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #2997ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .appstore-nav-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #f5f5f7;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+
+  .appstore-nav-card:hover .appstore-nav-name {
+    color: #2997ff;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .appstore-hero {
+      gap: 16px;
+    }
+
+    .appstore-icon-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 22px;
+    }
+
+    .appstore-title {
+      font-size: 22px;
+    }
+
+    .appstore-subtitle {
+      font-size: 13px;
+    }
+
+    .appstore-features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .appstore-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .appstore-eng-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .appstore-footer-nav {
+      grid-template-columns: 1fr;
+    }
+
+    .appstore-screenshot-card {
+      width: 200px;
+    }
+
+    .appstore-info-strip {
+      gap: 0;
+    }
+
+    .appstore-info-pill {
+      min-width: 70px;
+      padding: 6px 8px;
+    }
+
+    .appstore-pill-value {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .appstore-inner {
+      padding: 0 16px 60px;
+    }
+
+    .appstore-hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+
+    .appstore-hero-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .appstore-hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .appstore-icon-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+    }
+
+    .appstore-screenshot-card {
+      width: 180px;
+    }
+
+    .appstore-info-strip {
+      padding: 12px 0;
+    }
+
+    .appstore-info-pill {
+      min-width: 60px;
+    }
+
+    .appstore-pill-value--bordered {
+      font-size: 14px;
+    }
+
+    .appstore-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .appstore-section-title {
+      font-size: 19px;
+    }
+
+    .appstore-tags-wrap {
+      justify-content: flex-start;
+    }
+  }
+
+  /* ── Animation keyframes for App Store layout ── */
+  @keyframes appstore-fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .appstore-hero {
+    animation: appstore-fadeIn 0.6s ease both;
+  }
+
+  .appstore-info-strip {
+    animation: appstore-fadeIn 0.6s 0.1s ease both;
+  }
+
+  .appstore-carousel-wrap {
+    animation: appstore-fadeIn 0.6s 0.2s ease both;
+  }
+
+  .appstore-section {
+    animation: appstore-fadeIn 0.5s 0.15s ease both;
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*  APP LIST / PROJECTS GRID STYLES (App Store Listing)       */
+  /* ═══════════════════════════════════════════════════════════ */
+
+  .applist-root {
+    font-family: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #f5f5f7;
+    padding: 32px 16px 60px;
+    background: #0c0c0e;
+  }
+
+  .applist-root--section {
+    min-height: auto;
+    padding: 0 16px 20px;
+    background: transparent;
+  }
+
+  .applist-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Page Header ── */
+  .applist-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    margin-bottom: 24px;
+  }
+
+  .applist-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #a291fd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .applist-eyebrow-line {
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: #a291fd;
+  }
+
+  .applist-page-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: #f5f5f7;
+    margin: 0;
+  }
+
+  .applist-page-title-accent {
+    background: linear-gradient(135deg, #a291fd 0%, rgba(162, 145, 253, 0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .applist-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .applist-counter {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: rgba(162, 145, 253, 0.6);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .applist-header-desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: rgba(240, 236, 228, 0.45);
+    max-width: 400px;
+    text-align: right;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Controls ── */
+  .applist-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .applist-filters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .applist-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .applist-filter-btn {
+    white-space: nowrap;
+    padding: 7px 14px;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(245, 245, 247, 0.4);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .applist-filter-btn:hover {
+    color: rgba(245, 245, 247, 0.7);
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .applist-filter-btn--active {
+    color: #fff;
+    background: #2997ff;
+    border-color: #2997ff;
+  }
+
+  .applist-filter-btn--active:hover {
+    background: #0a84ff;
+    border-color: #0a84ff;
+    color: #fff;
+  }
+
+  /* ── Search Bar ── */
+  .applist-search-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .applist-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(245, 245, 247, 0.3);
+    pointer-events: none;
+  }
+
+  .applist-search-input {
+    width: 100%;
+    padding: 9px 32px 9px 36px;
+    background: rgba(28, 28, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: #f5f5f7;
+    outline: none;
+    transition: all 0.25s ease;
+  }
+
+  .applist-search-input::placeholder {
+    color: rgba(245, 245, 247, 0.25);
+  }
+
+  .applist-search-input:focus {
+    border-color: #2997ff;
+    box-shadow: 0 0 0 3px rgba(41, 151, 255, 0.12);
+  }
+
+  .applist-search-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(245, 245, 247, 0.35);
+    cursor: pointer;
+    font-size: 11px;
+    padding: 4px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .applist-search-clear:hover {
+    color: #f5f5f7;
+  }
+
+  /* ── Empty State ── */
+  .applist-empty {
+    padding: 60px 24px;
+    text-align: center;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: rgba(28, 28, 30, 0.4);
+  }
+
+  .applist-empty-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: rgba(245, 245, 247, 0.45);
+    margin: 0 0 16px;
+  }
+
+  .applist-reset-btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: rgba(245, 245, 247, 0.6);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .applist-reset-btn:hover {
+    border-color: #2997ff;
+    color: #2997ff;
+  }
+
+  /* ── Project Grid (App Store Rows) ── */
+  .applist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  /* ── Individual App Card Row ── */
+  .applist-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: #f5f5f7;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+  }
+
+  .applist-card:hover {
+    background: transparent;
+  }
+
+  /* Remove bottom border on last row (3 cols) */
+  .applist-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  /* ── App Icon ── */
+  .applist-card-icon-wrap {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #1c1c1e;
+    position: relative;
+    box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08);
+  }
+
+  .applist-card-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .applist-card-icon-accent {
+    display: none;
+  }
+
+  /* ── App Info ── */
+  .applist-card-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .applist-card-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f5f5f7;
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .applist-card-subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, 'Space Mono', monospace;
+    font-size: 13px;
+    color: rgba(245, 245, 247, 0.4);
+    margin: 0;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 400;
+  }
+
+  /* ── View Button (flat macOS pill) ── */
+  .applist-card-view-btn {
+    flex-shrink: 0;
+    padding: 5px 22px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #2997ff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  /* ── Responsive: Tablet (2 columns) ── */
+  @media (max-width: 900px) {
+    .applist-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .applist-card:nth-last-child(-n+2) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .applist-card:last-child {
+      border-bottom: none;
+    }
+
+    .applist-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .applist-header-right {
+      align-items: flex-start;
+    }
+
+    .applist-header-desc {
+      text-align: left;
+    }
+
+    .applist-search-wrap {
+      max-width: 100%;
+    }
+  }
+
+  /* ── Responsive: Mobile (1 column) ── */
+  @media (max-width: 560px) {
+    .applist-root {
+      padding: 16px 12px 60px;
+    }
+
+    .applist-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .applist-card {
+      padding: 12px 14px;
+      gap: 14px;
+    }
+
+    .applist-card:nth-last-child(-n+2) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .applist-card:last-child {
+      border-bottom: none;
+    }
+
+    .applist-card-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+    }
+
+    .applist-card-title {
+      font-size: 14px;
+    }
+
+    .applist-card-view-btn {
+      font-size: 13px;
+      padding: 4px 15px;
+    }
+
+    .applist-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .applist-search-wrap {
+      max-width: 100%;
+    }
+  }
+
+  /* ── Section Header Links & Footer in ProjectsSection ── */
+  .applist-see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #2997ff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .applist-see-all:hover {
+    opacity: 0.8;
+    transform: translateX(2px);
+  }
+
+  .applist-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 36px;
+  }
+
+  .applist-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 28px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .applist-footer-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(41, 151, 255, 0.4);
+    color: #2997ff;
+    transform: translateY(-1px);
+  }
 }

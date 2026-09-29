@@ -28,12 +28,116 @@
   }
 
   .portfolio-header {
-    height: 64px;
-    border-bottom: 1px solid rgba(68, 68, 68, 0.7);
+    display: none;
+  }
+
+  /* ── Navbar ── */
+  .pf-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 52px;
     display: flex;
     align-items: center;
-    padding: 0 16px;
-    gap: 8px;
+    justify-content: center;
+    padding: 0 20px;
+    background: transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .pf-navbar--scrolled {
+    background: rgba(12, 12, 14, 0.82);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .pf-navbar-inner {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .pf-navbar-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .pf-navbar-logo img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .pf-navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pf-navbar-link {
+    font-family: -apple-system, BlinkMacSystemFont, 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(245, 245, 247, 0.55);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .pf-navbar-link:hover {
+    color: rgba(245, 245, 247, 0.85);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .pf-navbar-link--active {
+    color: #f5f5f7;
+    font-weight: 600;
+  }
+
+  .pf-navbar-cta {
+    flex-shrink: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background: #2997ff;
+    padding: 6px 18px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .pf-navbar-cta:hover {
+    background: #0a84ff;
+  }
+
+  @media (max-width: 560px) {
+    .pf-navbar {
+      height: 48px;
+      padding: 0 12px;
+    }
+
+    .pf-navbar-link {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    .pf-navbar-cta {
+      font-size: 12px;
+      padding: 5px 14px;
+    }
+
+    .pf-navbar-logo img {
+      height: 24px;
+    }
   }
 
   /* ── Bento Grid ── */

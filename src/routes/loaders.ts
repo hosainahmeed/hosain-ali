@@ -21,6 +21,22 @@ export interface Project {
   features?: string[];
   challenge?: string;
   solution?: string;
+  // App Store-style fields (for Mobile category projects)
+  appIcon?: string;
+  screenshots?: string[];
+  appStoreUrl?: string;
+  playStoreUrl?: string;
+  rating?: number;
+  reviewCount?: number;
+  ageRating?: string;
+  appSize?: string;
+  version?: string;
+  versionDate?: string;
+  whatsNew?: string[];
+  compatibility?: string[];
+  developer?: string;
+  appCategory?: string;
+  price?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -147,6 +163,36 @@ export const PROJECTS: Project[] = [
     ],
     challenge: "Calculating shortest paths across complex multi-floor 3D indoor geometry on low-power mobile devices.",
     solution: "Compiled a high-performance C++ A* navigation graph core into WebAssembly/Native modules within the React Native bridge.",
+    // App Store metadata
+    appIcon: projectImages.project1,
+    screenshots: [
+      projectImages.project1,
+      projectImages.project,
+      projectImages.project1WithWirframe,
+      projectImages.project1,
+      projectImages.project,
+    ],
+    rating: 4.9,
+    reviewCount: 2847,
+    ageRating: "4+",
+    appSize: "68.4 MB",
+    version: "3.2.1",
+    versionDate: "Sep 15, 2023",
+    whatsNew: [
+      "Enhanced AR wayfinding with improved accuracy",
+      "New offline map download manager with progress tracking",
+      "Multi-floor 3D building visualization improvements",
+      "Performance optimizations for smoother map rendering",
+      "Bug fixes and stability improvements",
+    ],
+    compatibility: [
+      "iPhone — Requires iOS 16.0 or later",
+      "iPad — Requires iPadOS 16.0 or later",
+      "Android — Requires Android 12.0 or later",
+    ],
+    developer: "Meridian Transit Inc.",
+    appCategory: "Navigation",
+    price: "Free",
   },
   {
     id: "05",
